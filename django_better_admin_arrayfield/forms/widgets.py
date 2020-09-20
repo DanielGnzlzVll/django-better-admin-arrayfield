@@ -39,4 +39,10 @@ class DynamicArrayWidget(forms.TextInput):
             return data.get(name)
 
     def format_value(self, value):
+        import json
+        
+        if isinstance(value, str):
+            value = json.loads(value)
+            if not isinstance(value, list):
+                return [None]
         return value or [None]
