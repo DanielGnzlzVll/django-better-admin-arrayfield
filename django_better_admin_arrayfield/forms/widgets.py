@@ -4,6 +4,13 @@ from django import forms
 class DynamicArrayWidget(forms.TextInput):
 
     template_name = "django_better_admin_arrayfield/forms/widgets/dynamic_array.html"
+    class Media:
+        js = (
+            "js/django_better_admin_arrayfield.js",
+        )
+        css = {"all": (
+            "css/min/django_better_admin_arrayfield.min.css",
+        )}
 
     def get_context(self, name, value, attrs):
         context_value = value or [""]
