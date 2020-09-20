@@ -9,7 +9,7 @@ class DynamicArrayWidget(forms.TextInput):
             "js/django_better_admin_arrayfield.js",
         )
         css = {"all": (
-            "css/min/django_better_admin_arrayfield.min.css",
+            "css/django_better_admin_arrayfield.min.css",
         )}
 
     def get_context(self, name, value, attrs):
