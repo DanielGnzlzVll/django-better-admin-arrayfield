@@ -32,4 +32,4 @@ class DynamicArrayWidget(forms.TextInput):
             return data.get(name)
 
     def format_value(self, value):
-        return value or []
+        return value or [None]
