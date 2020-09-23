@@ -1,3 +1,5 @@
+import json
+
 from django import forms
 
 
@@ -34,13 +36,12 @@ class DynamicArrayWidget(forms.TextInput):
     def value_from_datadict(self, data, files, name):
         try:
             getter = data.getlist
-            return [value for value in getter(name) if value]
+            return json.dumps([value for value in getter(name) if value])
         except AttributeError:
             return data.get(name)
 
     def format_value(self, value):
-        import json
-        
+                
         if isinstance(value, str):
             value = json.loads(value)
             if not isinstance(value, list):
